@@ -1,13 +1,17 @@
 import React from 'react';
 import Counters from '../src/components/counters'
+import Nav from '../src/components/navbar'
+
 
 class App extends React.Component{
     render(){
         return(
-            <div>
+            <React.Fragment>
+                <Nav/>
+                <main className="container">
                 <Counters/>
-                
-            </div>
+                </main>
+            </React.Fragment>
         );
     }
 }
