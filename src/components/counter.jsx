@@ -22,16 +22,11 @@ class Counter extends React.Component {
         </span>
         <button
           onClick={()=>this.props.onIncrement(this.props.counter)}
-          className="btn btn-secondary btn-sm"
+          className="btn btn-secondary btn-sm m-2"
         >
           +
         </button>
-        <button
-          onClick={this.handleDeIncrement}
-          className="btn btn-secondary m-2 btn-sm"
-        >
-          -
-        </button>
+       
         <button
          className="btn btn-danger"
          onClick = {()=> this.props.onDelete(this.props.id)}
