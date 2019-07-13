@@ -15,14 +15,39 @@ class Counters extends React.Component {
     const counters = this.state.counters.filter(c => c.id!==counterID);
     this.setState({counters})
   };
+
+  handelIncrement = (counter) =>{
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+     counters[index].value++;
+
+     this.setState({Counters})
+
+  }
+
+  handelReset = () =>{
+    const counters = this.state.counters.map(c => {
+      c.value = 0;
+      return c;
+    });
+    this.setState({counters})
+  }
+
   render() {
     return (
       <React.Fragment>
+      <button 
+      className="btn btn-warning btn-sm m-2"
+      onClick = {this.handelReset}
+      >
+        Reset
+      </button>
         {this.state.counters.map(counter => (
           <Counter
-            value={counter.value}
+            counter={counter}
             id = {counter.id}
             key={counter.id}
+            onIncrement = {this.handelIncrement}
             onDelete={this.delete}
           />
         ))}
